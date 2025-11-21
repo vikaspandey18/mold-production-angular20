@@ -1,0 +1,60 @@
+<app-navbar />
+
+<div class="container-fluid">
+  <div class="mt-2">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="form-group">
+            <input type="date" name="fromdate" formControlName="fromDate" class="form-control" />
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <input type="date" name="todate" formControlName="toDate" class="form-control" />
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-danger btn-block w-100">Submit</button>
+        </div>
+        <div class="col-sm-2">
+          <a routerLink="/add-shift" class="btn btn-primary btn-block w-100">Add shift</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <table class="table table-bordered my-3">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Shift</th>
+        <th>Machine</th>
+        <th>Operator</th>
+        <th>Engineer</th>
+        <th>Supervisor</th>
+        <th>Shift Close</th>
+        <th>Batch Close</th>
+        <th>Batch No</th>
+        <th>Mold No</th>
+        <th>Product Code</th>
+        <th>Product Description</th>
+        <th>Part Wt</th>
+        <th>Colour</th>
+        <th>Cycle Time</th>
+        <th>Cavity Actual</th>
+        <th>Expected Production</th>
+        <th>Shot Counter</th>
+        <th>Production Qty</th>
+        <th>Rejection Qty</th>
+        <th>Total Downtime(Hr)</th>
+        <th>Remark</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="22" class="text-center">Sorry No Data Found</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

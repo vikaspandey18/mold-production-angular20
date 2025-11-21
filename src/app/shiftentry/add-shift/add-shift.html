@@ -1,0 +1,371 @@
+<app-navbar />
+<div class="container-fluid pt-2">
+  <form [formGroup]="shiftform" (ngSubmit)="onSubmit()">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="pill" href="#home">Enter Machine Data</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="pill" href="#menu1">Downtime Entries</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="pill" href="#menu2">Rejection Entries</a>
+      </li>
+    </ul>
+    <hr />
+    <div class="tab-content">
+      <div id="home" class="tab-pane active">
+        <h5 class="text-danger"><u>Basic Details</u></h5>
+
+        <div class="row g-3">
+          <div class="col-md-2">
+            <label for="enterDate" class="form-label">Entry Date</label>
+            <input
+              type="date"
+              id="enterDate"
+              formControlName="enterDate"
+              class="form-control"
+              readonly
+            />
+          </div>
+
+          <div class="col-md-2">
+            <label for="shiftNo" class="form-label">Shift No. *</label>
+            <select
+              name="shiftNo"
+              id="shiftNo"
+              formControlName="shiftNo"
+              class="form-select"
+              required
+            >
+              <option value="">Select Shift</option>
+            </select>
+            @if(shiftNo?.invalid && (shiftNo?.dirty || shiftNo?.touched)){
+            @if(shiftNo?.hasError('required')){
+            <span class="text-danger">Shift No. is required</span>
+            } }
+          </div>
+
+          <div class="col-md-2">
+            <label for="machineNo" class="form-label">Machine No. *</label>
+            <select
+              name="machineNo"
+              id="machineNo"
+              formControlName="machineNo"
+              class="form-select"
+              required
+            >
+              <option value="">Select Machine No</option>
+            </select>
+            @if(machineNo?.invalid && (machineNo?.dirty || machineNo?.touched)){
+            @if(machineNo?.hasError('required')){
+            <span class="text-danger">Machine No. is required</span>
+            } }
+          </div>
+          <div class="col-md-2">
+            <label for="operator" class="form-label">Operator *</label>
+            <select
+              name="operator"
+              id="operator"
+              formControlName="operator"
+              class="form-select"
+              required
+            >
+              <option value="">Select Operator</option>
+            </select>
+            @if(operator?.invalid && (operator?.dirty || operator?.touched)){ @if
+            (operator?.hasError('required')) {
+            <span class="text-danger">Operator Name is required</span>
+            } }
+          </div>
+          <div class="col-md-2">
+            <label for="engineer" class="form-label">Engineer Name *</label>
+            <select
+              name="engineer"
+              id="engineer"
+              formControlName="engineer"
+              class="form-select"
+              required
+            >
+              <option value="">Select Engineer</option>
+            </select>
+            @if(engineer?.invalid && (engineer?.dirty || engineer?.touched)){ @if
+            (engineer?.hasError('required')) {
+            <span class="text-danger">Engineer Name is required</span>
+            } }
+          </div>
+
+          <div class="col-md-2">
+            <label for="supervisor" class="form-label">Supervisor Name *</label>
+            <select
+              name="supervisor"
+              id="supervisor"
+              formControlName="supervisor"
+              class="form-select"
+              required
+            >
+              <option value="">Select Supervisor</option>
+            </select>
+            @if(supervisor?.invalid && (supervisor?.dirty || supervisor?.touched)){ @if
+            (supervisor?.hasError('required')) {
+            <span class="text-danger">Supervisor Name is required</span>
+            } }
+          </div>
+          <div class="col-md-3 mt-4">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="closeShift"
+                formControlName="closeShift"
+              />
+              <label class="form-check-label" for="closeShift"> Close Existing Shift </label>
+            </div>
+          </div>
+          <div class="col-md-3 mt-4">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="closeBatch"
+                formControlName="closeBatch"
+              />
+              <label class="form-check-label" for="closeBatch"> Close Existing Batch </label>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+        <h5 class="text-danger"><u>Product Details</u></h5>
+
+        <div class="row g-3">
+          <div class="col-md-2">
+            <label for="batch" class="form-label">Batch No *</label>
+            <input type="text" id="batch" formControlName="batch" class="form-control" />
+          </div>
+          <div class="col-md-2">
+            <label for="mold" class="form-label">Mold No. *</label>
+            <select name="mold" id="mold" formControlName="mold" class="form-select" required>
+              <option value="">Select Mold</option>
+            </select>
+            @if(mold?.invalid && (mold?.dirty || mold?.touched)){ @if(mold?.hasError('required')){
+            <span class="text-danger">Mold No. is required</span>
+            }}
+          </div>
+          <div class="col-md-2">
+            <label for="productCode" class="form-label">Product Code *</label>
+            <select
+              name="productCode"
+              id="productCode"
+              formControlName="productCode"
+              class="form-select"
+              required
+            >
+              <option value="">Select Product Code</option>
+            </select>
+            @if(productCode?.invalid && (productCode?.dirty || productCode?.touched)){
+            @if(productCode?.hasError('required')){
+            <span class="text-danger">Product Code is required</span>
+            } }
+          </div>
+          <div class="col-md-6">
+            <label for="productDescription" class="form-label">Product Description</label>
+            <input
+              type="text"
+              id="productDescription"
+              formControlName="productDescription"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="partWt" class="form-label">Part WT(gm)</label>
+            <input type="number" id="partWt" formControlName="partWt" class="form-control" />
+          </div>
+          <div class="col-md-2">
+            <label for="colour" class="form-label">Colour</label>
+            <input type="text" id="colour" formControlName="colour" class="form-control" />
+          </div>
+          <div class="col-md-2">
+            <label for="cycleTime" class="form-label">Cycle Time</label>
+            <input type="number" id="cycleTime" formControlName="cycleTime" class="form-control" />
+          </div>
+          <div class="col-md-2">
+            <label for="cavityActual" class="form-label">Cavity Actual</label>
+            <input
+              type="number"
+              id="cavityActual"
+              formControlName="cavityActual"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="expectedProductionQty" class="form-label">Expected Production Qty</label>
+            <input
+              type="number"
+              id="expectedProductionQty"
+              formControlName="expectedProductionQty"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="shotCounter" class="form-label">Shot Counter</label>
+            <input
+              type="number"
+              id="shotCounter"
+              formControlName="shotCounter"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="productionQty" class="form-label">Production Qty</label>
+            <input
+              type="number"
+              id="productionQty"
+              formControlName="productionQty"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="rejectionQty" class="form-label">Rejection Qty</label>
+            <input
+              type="number"
+              id="rejectionQty"
+              formControlName="rejectionQty"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="totalMachineDowntimeHr" class="form-label"
+              >Total Machine Downtime(Hr)</label
+            >
+            <input
+              type="number"
+              id="totalMachineDowntimeHr"
+              formControlName="totalMachineDowntimeHr"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-12">
+            <label for="remark" class="form-label">Remark</label>
+            <textarea id="remark" formControlName="remark" class="form-control" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div id="menu1" class="tab-pane fade">
+        <div>
+          <table class="table table-responsive table-bordered">
+            <thead>
+              <tr>
+                <th>Start Time</th>
+                <th>Stop Time</th>
+                <th>Down Time</th>
+                <th>Downtime Code</th>
+                <th>Reason For Downtime</th>
+                <th style="width: 120px">Action</th>
+              </tr>
+            </thead>
+            <tbody formArrayName="downtimeEntries">
+              @for (downtime of downtimeEntries.controls; track downtime;let i = $index) {
+              <tr [formGroupName]="i">
+                <td>
+                  <input
+                    type="time"
+                    class="form-control"
+                    name="startTime"
+                    formControlName="startTime"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="time"
+                    class="form-control"
+                    name="stopTime"
+                    formControlName="stopTime"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="downTime"
+                    formControlName="downTime"
+                    readonly
+                  />
+                </td>
+                <td>
+                  <select class="form-select" name="downtimeCode" formControlName="downtimeCode">
+                    <option value="">Select Downtime Code</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="text" class="form-control" name="reason" formControlName="reason" />
+                </td>
+                <td>
+                  <button type="button" (click)="removeDowntimeEntry(i)" class="btn btn-danger">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+          <button type="button" (click)="addDowntimeEntry()" class="btn btn-primary">
+            Add Downtime
+          </button>
+        </div>
+      </div>
+
+      <div id="menu2" class="tab-pane fade">
+        <table class="table table-responsive table-bordered">
+          <thead>
+            <tr>
+              <th>Rejection Code</th>
+              <th>Reason Reason</th>
+              <th>Rejection Qty</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody formArrayName="rejectionEntries">
+            @for(rejection of rejectionEntries.controls; track rejection;let i = $index){
+            <tr [formGroupName]="i">
+              <td>
+                <select class="form-select" formControlName="rejectionCode">
+                  <option>Select Rejection Code</option>
+                </select>
+              </td>
+              <td>
+                <input type="text" class="form-control" formControlName="rejectionReason" />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  min="0"
+                  class="form-control"
+                  formControlName="rejectionEntryQty"
+                />
+              </td>
+              <td>
+                <button type="button" (click)="removeRejectionEntry(i)" class="btn btn-danger">
+                  Delete
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+        <button type="button" (click)="addRejectionEntry()" class="btn btn-primary">
+          Add Rejection
+        </button>
+      </div>
+    </div>
+
+    <br /><br /><br /><br /><br />
+
+    <div class="fixed-bottom bg-light p-3 text-end">
+      <button type="submit" [disabled]="shiftform.invalid" class="btn btn-danger">Submit</button>
+    </div>
+    <br />
+  </form>
+</div>

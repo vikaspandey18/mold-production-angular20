@@ -1,0 +1,52 @@
+<app-navbar />
+
+<div class="container-fluid p-2">
+  <div class="">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="name">Enter Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name" />
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="mobile">Enter Mobile</label>
+            <input type="text" id="mobile" class="form-control" formControlName="mobile" />
+            @if(mobile?.invalid && (mobile?.touched || mobile?.dirty)){
+            @if(mobile?.hasError('required')){
+            <span class="text-danger">Mobile number is required.</span>
+            }
+            @if(mobile?.hasError('pattern')){
+            <span class="text-danger">Mobile number must be exactly 10 digits.</span>
+            } }
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="password">Enter Password</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              formControlName="password"
+            />
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="role">Enter Role</label>
+            <select name="roles" id="role" class="form-select" formControlName="role">
+              <option value="">Select Role</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Add a submit button -->
+      <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary mt-3">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
