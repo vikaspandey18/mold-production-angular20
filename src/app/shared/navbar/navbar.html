@@ -1,14 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Camlin</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="/dashboard">Dashboard</a>
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="/dashboard"
+            >Dashboard</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Production Status</a>
@@ -21,75 +30,81 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             Master
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
               <a class="dropdown-item" routerLink="/department">
-                <i class="fa fa-user"></i> <span>Department Master</span>
+                <span>Department Master</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Engineer Master</span>
+                <span>Engineer Master</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Machine Master</span>
+                <span>Machine Master</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Mold Master</span>
+                <span>Mold Master</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Operator Master</span>
+                <span>Operator Master</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Product BOM</span>
+                <span>Product BOM</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Product Master</span>
+                <span>Product Master</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Rejection Master</span>
+                <span>Rejection Master</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Downtime Master</span>
+                <span>Downtime Master</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Supervisor Master</span>
+                <span>Supervisor Master</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Combination Master</span>
+                <span>Combination Master</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="">
-                <i class="fa fa-user"></i> <span>Shift Master</span>
+                <span>Shift Master</span>
               </a>
             </li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user">User</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/user">User</a>
         </li>
       </ul>
       <button type="button" (click)="logout()" class="btn btn-primary">Logout</button>
