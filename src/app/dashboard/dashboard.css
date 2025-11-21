@@ -1,0 +1,8 @@
+.table > :not(caption) > * > * {
+  padding: 2px;
+}
+
+th {
+  font-weight: 450;
+  text-align: center;
+}
