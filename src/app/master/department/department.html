@@ -1,0 +1,92 @@
+<app-navbar />
+
+<div class="container-fluid">
+    <div class="mt-1 text-end">
+        <button type="button" class="btn btn-danger" title="Add Department" data-bs-toggle="modal"
+            data-bs-target="#addDepartment">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
+    <table class="table table-bordered my-3">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Plant Code</th>
+                <th>Status</th>
+                <th>Sort By</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="7" class="text-center">Sorry No Data Found</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" id="addDepartment">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Add Department</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" id="closeModalBtn"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Enter Code</label>
+                                <input type="text" class="form-control" formControlName="departmentCode">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Enter Name</label>
+                                <input type="text" class="form-control" formControlName="departmentName">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Plant Code</label>
+                                <input type="text" class="form-control" formControlName="plantCode">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Status</label>
+                                <select id="status" class="form-control" formControlName="status">
+                                    <option value="">Select Status</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Deactive</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Sort By</label>
+                                <input type="text" class="form-control" formControlName="sortBy">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <hr>
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

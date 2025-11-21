@@ -20,41 +20,24 @@
         <div class="row g-3">
           <div class="col-md-2">
             <label for="enterDate" class="form-label">Entry Date</label>
-            <input
-              type="date"
-              id="enterDate"
-              formControlName="enterDate"
-              class="form-control"
-              readonly
-            />
+            <input type="date" id="enterDate" formControlName="enterDate" class="form-control" readonly />
           </div>
 
           <div class="col-md-2">
             <label for="shiftNo" class="form-label">Shift No. *</label>
-            <select
-              name="shiftNo"
-              id="shiftNo"
-              formControlName="shiftNo"
-              class="form-select"
-              required
-            >
+            <select name="shiftNo" id="shiftNo" formControlName="shiftNo" class="form-select" required>
               <option value="">Select Shift</option>
             </select>
-            @if(shiftNo?.invalid && (shiftNo?.dirty || shiftNo?.touched)){
-            @if(shiftNo?.hasError('required')){
+
+            @if(shiftform.invalid && (shiftform.dirty || shiftform.touched)){
+            @if(shiftform.hasError('required')){
             <span class="text-danger">Shift No. is required</span>
             } }
           </div>
 
           <div class="col-md-2">
             <label for="machineNo" class="form-label">Machine No. *</label>
-            <select
-              name="machineNo"
-              id="machineNo"
-              formControlName="machineNo"
-              class="form-select"
-              required
-            >
+            <select name="machineNo" id="machineNo" formControlName="machineNo" class="form-select" required>
               <option value="">Select Machine No</option>
             </select>
             @if(machineNo?.invalid && (machineNo?.dirty || machineNo?.touched)){
@@ -64,13 +47,7 @@
           </div>
           <div class="col-md-2">
             <label for="operator" class="form-label">Operator *</label>
-            <select
-              name="operator"
-              id="operator"
-              formControlName="operator"
-              class="form-select"
-              required
-            >
+            <select name="operator" id="operator" formControlName="operator" class="form-select" required>
               <option value="">Select Operator</option>
             </select>
             @if(operator?.invalid && (operator?.dirty || operator?.touched)){ @if
@@ -80,13 +57,7 @@
           </div>
           <div class="col-md-2">
             <label for="engineer" class="form-label">Engineer Name *</label>
-            <select
-              name="engineer"
-              id="engineer"
-              formControlName="engineer"
-              class="form-select"
-              required
-            >
+            <select name="engineer" id="engineer" formControlName="engineer" class="form-select" required>
               <option value="">Select Engineer</option>
             </select>
             @if(engineer?.invalid && (engineer?.dirty || engineer?.touched)){ @if
@@ -97,13 +68,7 @@
 
           <div class="col-md-2">
             <label for="supervisor" class="form-label">Supervisor Name *</label>
-            <select
-              name="supervisor"
-              id="supervisor"
-              formControlName="supervisor"
-              class="form-select"
-              required
-            >
+            <select name="supervisor" id="supervisor" formControlName="supervisor" class="form-select" required>
               <option value="">Select Supervisor</option>
             </select>
             @if(supervisor?.invalid && (supervisor?.dirty || supervisor?.touched)){ @if
@@ -113,23 +78,13 @@
           </div>
           <div class="col-md-3 mt-4">
             <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="closeShift"
-                formControlName="closeShift"
-              />
+              <input class="form-check-input" type="checkbox" id="closeShift" formControlName="closeShift" />
               <label class="form-check-label" for="closeShift"> Close Existing Shift </label>
             </div>
           </div>
           <div class="col-md-3 mt-4">
             <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="closeBatch"
-                formControlName="closeBatch"
-              />
+              <input class="form-check-input" type="checkbox" id="closeBatch" formControlName="closeBatch" />
               <label class="form-check-label" for="closeBatch"> Close Existing Batch </label>
             </div>
           </div>
@@ -154,13 +109,7 @@
           </div>
           <div class="col-md-2">
             <label for="productCode" class="form-label">Product Code *</label>
-            <select
-              name="productCode"
-              id="productCode"
-              formControlName="productCode"
-              class="form-select"
-              required
-            >
+            <select name="productCode" id="productCode" formControlName="productCode" class="form-select" required>
               <option value="">Select Product Code</option>
             </select>
             @if(productCode?.invalid && (productCode?.dirty || productCode?.touched)){
@@ -170,13 +119,8 @@
           </div>
           <div class="col-md-6">
             <label for="productDescription" class="form-label">Product Description</label>
-            <input
-              type="text"
-              id="productDescription"
-              formControlName="productDescription"
-              class="form-control"
-              readonly
-            />
+            <input type="text" id="productDescription" formControlName="productDescription" class="form-control"
+              readonly />
           </div>
           <div class="col-md-2">
             <label for="partWt" class="form-label">Part WT(gm)</label>
@@ -192,59 +136,29 @@
           </div>
           <div class="col-md-2">
             <label for="cavityActual" class="form-label">Cavity Actual</label>
-            <input
-              type="number"
-              id="cavityActual"
-              formControlName="cavityActual"
-              class="form-control"
-            />
+            <input type="number" id="cavityActual" formControlName="cavityActual" class="form-control" />
           </div>
           <div class="col-md-2">
             <label for="expectedProductionQty" class="form-label">Expected Production Qty</label>
-            <input
-              type="number"
-              id="expectedProductionQty"
-              formControlName="expectedProductionQty"
-              class="form-control"
-            />
+            <input type="number" id="expectedProductionQty" formControlName="expectedProductionQty"
+              class="form-control" />
           </div>
           <div class="col-md-2">
             <label for="shotCounter" class="form-label">Shot Counter</label>
-            <input
-              type="number"
-              id="shotCounter"
-              formControlName="shotCounter"
-              class="form-control"
-            />
+            <input type="number" id="shotCounter" formControlName="shotCounter" class="form-control" />
           </div>
           <div class="col-md-2">
             <label for="productionQty" class="form-label">Production Qty</label>
-            <input
-              type="number"
-              id="productionQty"
-              formControlName="productionQty"
-              class="form-control"
-            />
+            <input type="number" id="productionQty" formControlName="productionQty" class="form-control" />
           </div>
           <div class="col-md-2">
             <label for="rejectionQty" class="form-label">Rejection Qty</label>
-            <input
-              type="number"
-              id="rejectionQty"
-              formControlName="rejectionQty"
-              class="form-control"
-            />
+            <input type="number" id="rejectionQty" formControlName="rejectionQty" class="form-control" />
           </div>
           <div class="col-md-2">
-            <label for="totalMachineDowntimeHr" class="form-label"
-              >Total Machine Downtime(Hr)</label
-            >
-            <input
-              type="number"
-              id="totalMachineDowntimeHr"
-              formControlName="totalMachineDowntimeHr"
-              class="form-control"
-            />
+            <label for="totalMachineDowntimeHr" class="form-label">Total Machine Downtime(Hr)</label>
+            <input type="number" id="totalMachineDowntimeHr" formControlName="totalMachineDowntimeHr"
+              class="form-control" />
           </div>
           <div class="col-md-12">
             <label for="remark" class="form-label">Remark</label>
@@ -270,29 +184,13 @@
               @for (downtime of downtimeEntries.controls; track downtime;let i = $index) {
               <tr [formGroupName]="i">
                 <td>
-                  <input
-                    type="time"
-                    class="form-control"
-                    name="startTime"
-                    formControlName="startTime"
-                  />
+                  <input type="time" class="form-control" name="startTime" formControlName="startTime" />
                 </td>
                 <td>
-                  <input
-                    type="time"
-                    class="form-control"
-                    name="stopTime"
-                    formControlName="stopTime"
-                  />
+                  <input type="time" class="form-control" name="stopTime" formControlName="stopTime" />
                 </td>
                 <td>
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="downTime"
-                    formControlName="downTime"
-                    readonly
-                  />
+                  <input type="text" class="form-control" name="downTime" formControlName="downTime" readonly />
                 </td>
                 <td>
                   <select class="form-select" name="downtimeCode" formControlName="downtimeCode">
@@ -339,12 +237,7 @@
                 <input type="text" class="form-control" formControlName="rejectionReason" />
               </td>
               <td>
-                <input
-                  type="number"
-                  min="0"
-                  class="form-control"
-                  formControlName="rejectionEntryQty"
-                />
+                <input type="number" min="0" class="form-control" formControlName="rejectionEntryQty" />
               </td>
               <td>
                 <button type="button" (click)="removeRejectionEntry(i)" class="btn btn-danger">

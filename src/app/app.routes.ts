@@ -36,4 +36,9 @@ export const routes: Routes = [
     loadComponent: () => import('./shiftentry/add-shift/add-shift').then((m) => m.AddShift),
     title: 'Add Shift',
   },
+  {
+    path: 'department',
+    loadComponent: () => import('./master/department/department').then((m) => m.Department),
+    title: 'Department',
+  },
 ];

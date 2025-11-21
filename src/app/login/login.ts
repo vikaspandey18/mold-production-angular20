@@ -18,6 +18,8 @@ export class Login {
 
   onSubmit() {
     console.log(this.loginForm.value);
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard'], {
+      replaceUrl: true,
+    });
   }
 }
